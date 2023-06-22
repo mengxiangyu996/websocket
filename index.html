@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>websocket</title>
+        <link rel="icon" href="icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="index.css" type="text/css">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="box">
+                <h1 class="title">{{ title }}</h1>
+                <div class="c-box">
+                    <div class="coolinput">
+                        <label for="input" class="text">URL:</label>
+                        <input type="text" class="url" placeholder="ws://127.0.0.1:8888" v-model="url">
+                    </div>
+                </div>
+                <div class="ws-button">
+                    <button class="open" @click="open">连接</button>
+                    <button class="close" @click="close">断开</button>
+                </div>
+                <div class="c-box">
+                    <div class="data">
+                        <p style="margin-left: 10px;" v-for="item in data">{{ item.title }}: {{ item.message }}</p>
+                    </div>
+                </div>
+                <div class="c-box">
+                    <input type="text" class="message" v-model="message" placeholder="Write here...">
+                    <input class="send" value="send" type="submit" @click="send">
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script type = "text/javascript">
+
+        const { createApp } = Vue;
+        createApp({
+
+            data() {
+                return {
+                    title: "webscoket 在线测试",
+                    url: "",
+                    message: "",
+                    ws: {},
+                    data: []
+                }
+            },
+            methods: {
+                open() {
+                    this.ws = new WebSocket(this.url)
+                    this.ws.onopen =  () => {
+                        this.data.push({
+                            title: "Server Message",
+                            message: "连接成功"
+                        })
+                    };
+                },
+
+                close() {
+                    this.ws.close()
+                    this.ws.onclose =  () => {
+                        let item = {
+                            title: "Server Message",
+                            message: "连接断开"
+                        }
+                        this.data.push(item)
+                    };
+                },
+
+                send() {
+                    this.ws.send(this.message)
+                    this.data.push({
+                        title: "Your Message",
+                        message: this.message
+                    })
+
+                    this.ws.onmessage =  () => {
+                        console.log(event);
+                        this.data.push({
+                            title: "Server Message",
+                            message: event.data
+                        });
+                    };
+                }
+            }
+
+        }).mount("#app")
+
+    </script>
+</html>

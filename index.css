@@ -1,0 +1,142 @@
+.box {
+    text-align: center;
+}
+.title {
+    color: #818CF8;
+}
+/* 输入框 */
+.c-box {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+.coolinput {
+    display: flex;
+    flex-direction: column;
+}
+.coolinput label.text {
+    font-size: 0.75rem;
+    color: #818CF8;
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    background: #fff;
+    width: fit-content;
+}
+
+.coolinput input[type=text].url {
+    padding: 11px 10px;
+    font-size: 0.75rem;
+    border: 2px #818CF8 solid;
+    border-radius: 5px;
+    background: #fff;
+    width: 400px;
+}
+
+.coolinput input[type=text].url:focus {
+    outline: none;
+}
+
+/* 按钮 */
+.ws-button {
+    margin: 10pt;
+}
+
+.open {
+    margin-right: 10px;
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+  
+.open:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+  
+.open:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+.close {
+    margin-right: 10px;
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+  
+.close:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+  
+.close:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+/* 内容 */
+.data {
+    margin: 10pt;
+    overflow: auto;
+    height: 300px;
+    width: 590px;
+    border: 1px solid #5e4dcd;
+    border-radius: 6px;
+    text-align: left;
+}
+
+/* 发送 */
+.message {
+    min-height: 50px;
+    width: 500px;
+    padding: 0 1rem;
+    color: #000;
+    font-size: 15px;
+    border: 1px solid #5e4dcd;
+    border-radius: 6px 0 0 6px;
+    background-color: transparent;
+}
+  
+.send {
+    min-height: 55px;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background-color: #5e4dcd;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+  
+.send:hover {
+    background-color: #5e5dcd;
+}
+  
+.message:focus, .input:focus-visible {
+    border-color: #3898EC;
+    outline: none;
+}
+  
